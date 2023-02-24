@@ -45,8 +45,8 @@ private extension WebCrawler {
     func map(data: Data, response: HTTPURLResponse) -> Result {
         if 200...299 ~= response.statusCode {
             let string = String(decoding: data, as: UTF8.self)
-            guard let doc = try? parser.parse(htmlString: string) else { return .failure(Error.htmlParseError) }
-            return .success(doc)
+            guard let conference = try? parser.parse(htmlString: string) else { return .failure(Error.htmlParseError) }
+            return .success(conference)
         } else {
             return .failure(Error.invalidData)
         }
