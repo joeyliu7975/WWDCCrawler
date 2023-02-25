@@ -27,6 +27,7 @@ final class SwiftSoupHTMLParser: HTMLParser {
                         result.append(e)
                     }
                 })
+            
             let links = try contentDoc.select("a")
                 .compactMap({ try? $0.attr("href")})
                 .reduce(into: [String](), { result, e in
@@ -34,6 +35,7 @@ final class SwiftSoupHTMLParser: HTMLParser {
                         result.append(e)
                     }
                 })
+            
             let videos = zip(videoTitles, links).map {
                 let url = URLFactory.makeURL(scheme: .https,
                                              host: .appleDeveloper,
