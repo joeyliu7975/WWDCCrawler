@@ -46,6 +46,7 @@ public struct WWDCCrawler {
             }
             sema.signal()
         }
+        print("Start Retrieving Data...")
         sema.wait()
     }
     
