@@ -7,24 +7,25 @@
 
 import Foundation
 
-final class HackMDManager {
-    private let fileName: String
+final class HackMDManager: FileManaging {
+    let file: FileConfig
     private let fileManager: FileManager
     private lazy var path: String = {
-        fileManager.currentDirectoryPath + "/\(fileName).md"
+        fileManager.currentDirectoryPath + "/\(file.name)\(file.type.rawValue)"
     }()
     
     init(fileName: String,
          _ fileManager: FileManager = .default) {
         self.fileManager = fileManager
-        self.fileName = fileName
+        self.file = FileConfig(name: fileName,
+                                 type: .hackMD)
     }
     
     func createFile() {
         if (fileManager.createFile(atPath: path, contents: nil, attributes: nil)) {
-            print("\(fileName) created successfully.\n")
+            print("\(file.name) created successfully.\n")
         } else {
-            print("\(fileName) can not be created.\n")
+            print("\(file.name) can not be created.\n")
         }
     }
     
@@ -36,7 +37,7 @@ final class HackMDManager {
         
         do {
             try content.write(toFile: path, atomically: true, encoding: .utf8)
-            print("written successfully")
+            print("The content has been written into \(path) successfully")
         } catch {
             print("\(#function): #\(content)")
         }
