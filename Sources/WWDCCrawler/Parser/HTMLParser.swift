@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftSoup
 
 protocol HTMLParser {
     func parse(htmlString: String) throws -> Conference
