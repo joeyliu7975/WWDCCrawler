@@ -2,6 +2,24 @@
 
 - Using WWDCCrawler, you can easily extract information about the Worldwide Developers Conference (WWDC) videos available on the Apple Developer website. This tool enables you to retrieve the titles of all videos from a specific year, along with their corresponding links.
 
+### For those who doesn't has Xcode
+
+1. Open Terminal on your Mac.
+
+2. Run the following command to install Homebrew, which is a package manager for macOS:
+
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+3. Once Homebrew is installed, run the following command to install Swift:
+
+```
+brew install swift
+```
+
+This will download and install the latest version of the Swift toolchain on your Mac.
+
 ### Usage
 follow these steps:
 
